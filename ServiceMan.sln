@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{55189AFD-040F-4D7E-A480-7D50A2DCF259}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{DFE47D47-EE3C-478C-AF3E-F31BC4E89948}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceMan.BaseLibrary", "ServiceMan.BaseLibrary\ServiceMan.BaseLibrary.csproj", "{8A1F7D8E-23F1-4E25-896C-D2F2D0788F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatCollector", "StatCollector\StatCollector.csproj", "{F6C1E010-8D82-4620-AABC-090748B9F6FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A1F7D8E-23F1-4E25-896C-D2F2D0788F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1F7D8E-23F1-4E25-896C-D2F2D0788F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1F7D8E-23F1-4E25-896C-D2F2D0788F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1F7D8E-23F1-4E25-896C-D2F2D0788F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C1E010-8D82-4620-AABC-090748B9F6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C1E010-8D82-4620-AABC-090748B9F6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C1E010-8D82-4620-AABC-090748B9F6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C1E010-8D82-4620-AABC-090748B9F6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8A1F7D8E-23F1-4E25-896C-D2F2D0788F1F} = {DFE47D47-EE3C-478C-AF3E-F31BC4E89948}
+		{F6C1E010-8D82-4620-AABC-090748B9F6FB} = {55189AFD-040F-4D7E-A480-7D50A2DCF259}
+	EndGlobalSection
+EndGlobal

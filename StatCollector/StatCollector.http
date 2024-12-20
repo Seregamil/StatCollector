@@ -1,0 +1,38 @@
+@StatCollector_HostAddress = http://localhost:5223
+
+###
+POST {{StatCollector_HostAddress}}/v1/jobs
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "TEST_PIPE",
+  "buildId": 2,
+  "url": "https://test_pipe",
+  "status": "Success",
+  "stages": [
+    {
+      "sample_test_2": "sectot"
+    }
+  ],
+  "caller": {
+    "login": "20823050",
+    "name": "Serget",
+    "email": "seregamil38@gmail.com"
+  }
+}
+
+### 
+GET {{StatCollector_HostAddress}}/info
+Accept: application/json
+
+###
+GET {{StatCollector_HostAddress}}/health
+
+### 
+GET {{StatCollector_HostAddress}}/v1/users/20823050
+Accept: application/json
+
+### 
+GET {{StatCollector_HostAddress}}/v1/jobs/1
+Accept: application/json
