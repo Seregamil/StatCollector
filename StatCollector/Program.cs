@@ -32,7 +32,10 @@ var dbUser = Environment.GetEnvironmentVariable("DB_USER")
               ?? throw new Exception("DB_USER not setted");
 
 var dbPwd = Environment.GetEnvironmentVariable("DB_PASSWORD") 
-              ?? throw new Exception("DB_PASSWORD not setted");
+            ?? throw new Exception("DB_PASSWORD not setted");
+
+var dbName = Environment.GetEnvironmentVariable("DB_NAME") 
+            ?? throw new Exception("DB_NAME not setted");
 
 var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA") 
               ?? throw new Exception("DB_SCHEMA not setted");
@@ -44,6 +47,7 @@ var connectionString = string.Format(connectionStringPattern,
     dbPort,
     dbUser,
     dbPwd,
+    dbName,
     dbSchema);
 
 builder.Services
