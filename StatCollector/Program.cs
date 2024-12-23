@@ -22,9 +22,33 @@ Log.Logger = LogExtension
 builder.Host.UseSerilog();
 
 // Add context to the container.
+var dbHost = Environment.GetEnvironmentVariable("DB_HOST") 
+              ?? throw new Exception("DB_HOST not setted");
+
+var dbPort = Environment.GetEnvironmentVariable("DB_PORT") 
+              ?? throw new Exception("DB_PORT not setted");
+
+var dbUser = Environment.GetEnvironmentVariable("DB_USER") 
+              ?? throw new Exception("DB_USER not setted");
+
+var dbPwd = Environment.GetEnvironmentVariable("DB_PASSWORD") 
+              ?? throw new Exception("DB_PASSWORD not setted");
+
+var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA") 
+              ?? throw new Exception("DB_SCHEMA not setted");
+
+const string connectionStringPattern = "Host={0};Port={1};Username={2};Password={3};Database={4};SearchPath={5}";
+
+var connectionString = string.Format(connectionStringPattern,
+    dbHost,
+    dbPort,
+    dbUser,
+    dbPwd,
+    dbSchema);
+
 builder.Services
     .AddDbContext<PipelineContext>(options =>
-        options.UseNpgsql(builder.Configuration.GetValue<string>("PostgresConnectionString")));
+        options.UseNpgsql(connectionString));
 
 // Add repositories layer
 builder.Services
