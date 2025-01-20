@@ -37,6 +37,9 @@ var dbPwd = Environment.GetEnvironmentVariable("DB_PASSWORD")
 var dbName = Environment.GetEnvironmentVariable("DB_NAME")
              ?? throw new Exception("DB_NAME not setted");
 
+var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA") 
+               ?? throw new Exception("DB_SCHEMA not setted");
+
 const string connectionStringPattern = "Host={0};Port={1};Username={2};Password={3};Database={4};";
 
 var connectionString = string.Format(connectionStringPattern,
@@ -48,7 +51,9 @@ var connectionString = string.Format(connectionStringPattern,
 
 builder.Services
     .AddDbContext<PipelineContext>(options =>
-        options.UseNpgsql(connectionString));
+        options.UseNpgsql(connectionString, 
+            optionsBuilder => 
+                optionsBuilder.MigrationsHistoryTable("__EFMigrationsHistory", dbSchema)));
 
 // Add repositories layer
 builder.Services
