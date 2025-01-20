@@ -22,33 +22,29 @@ Log.Logger = LogExtension
 builder.Host.UseSerilog();
 
 // Add context to the container.
-var dbHost = Environment.GetEnvironmentVariable("DB_HOST") 
-              ?? throw new Exception("DB_HOST not setted");
+var dbHost = Environment.GetEnvironmentVariable("DB_HOST")
+             ?? throw new Exception("DB_HOST not setted");
 
-var dbPort = Environment.GetEnvironmentVariable("DB_PORT") 
-              ?? throw new Exception("DB_PORT not setted");
+var dbPort = Environment.GetEnvironmentVariable("DB_PORT")
+             ?? throw new Exception("DB_PORT not setted");
 
-var dbUser = Environment.GetEnvironmentVariable("DB_USER") 
-              ?? throw new Exception("DB_USER not setted");
+var dbUser = Environment.GetEnvironmentVariable("DB_USER")
+             ?? throw new Exception("DB_USER not setted");
 
-var dbPwd = Environment.GetEnvironmentVariable("DB_PASSWORD") 
+var dbPwd = Environment.GetEnvironmentVariable("DB_PASSWORD")
             ?? throw new Exception("DB_PASSWORD not setted");
 
-var dbName = Environment.GetEnvironmentVariable("DB_NAME") 
-            ?? throw new Exception("DB_NAME not setted");
+var dbName = Environment.GetEnvironmentVariable("DB_NAME")
+             ?? throw new Exception("DB_NAME not setted");
 
-var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA") 
-              ?? throw new Exception("DB_SCHEMA not setted");
-
-const string connectionStringPattern = "Host={0};Port={1};Username={2};Password={3};Database={4};SearchPath={5}";
+const string connectionStringPattern = "Host={0};Port={1};Username={2};Password={3};Database={4};";
 
 var connectionString = string.Format(connectionStringPattern,
     dbHost,
     dbPort,
     dbUser,
     dbPwd,
-    dbName,
-    dbSchema);
+    dbName);
 
 builder.Services
     .AddDbContext<PipelineContext>(options =>
