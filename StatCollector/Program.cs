@@ -37,7 +37,7 @@ var dbPwd = Environment.GetEnvironmentVariable("DB_PASSWORD")
 var dbName = Environment.GetEnvironmentVariable("DB_NAME")
              ?? throw new Exception("DB_NAME not setted");
 
-var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA") 
+var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA")
                ?? throw new Exception("DB_SCHEMA not setted");
 
 const string connectionStringPattern = "Host={0};Port={1};Username={2};Password={3};Database={4};";

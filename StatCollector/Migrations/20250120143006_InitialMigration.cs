@@ -11,8 +11,12 @@ namespace StatCollector.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "serviceman");
+
             migrationBuilder.CreateTable(
                 name: "users",
+                schema: "serviceman",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
@@ -28,6 +32,7 @@ namespace StatCollector.Migrations
 
             migrationBuilder.CreateTable(
                 name: "pipelines",
+                schema: "serviceman",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
@@ -45,6 +50,7 @@ namespace StatCollector.Migrations
                     table.ForeignKey(
                         name: "FK_pipelines_users_caller_id",
                         column: x => x.caller_id,
+                        principalSchema: "serviceman",
                         principalTable: "users",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -52,16 +58,19 @@ namespace StatCollector.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_pipelines_caller_id",
+                schema: "serviceman",
                 table: "pipelines",
                 column: "caller_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_pipelines_name",
+                schema: "serviceman",
                 table: "pipelines",
                 column: "name");
 
             migrationBuilder.CreateIndex(
                 name: "IX_users_login",
+                schema: "serviceman",
                 table: "users",
                 column: "login");
         }
@@ -70,10 +79,12 @@ namespace StatCollector.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "pipelines");
+                name: "pipelines",
+                schema: "serviceman");
 
             migrationBuilder.DropTable(
-                name: "users");
+                name: "users",
+                schema: "serviceman");
         }
     }
 }

@@ -16,7 +16,7 @@ public class PipelineContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA") 
+        var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA")
                        ?? throw new Exception("DB_SCHEMA not setted");
 
         modelBuilder.HasDefaultSchema(dbSchema);

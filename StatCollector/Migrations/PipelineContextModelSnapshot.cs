@@ -16,7 +16,7 @@ namespace StatCollector.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("stat_collector")
+                .HasDefaultSchema("serviceman")
                 .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -53,7 +53,7 @@ namespace StatCollector.Migrations
 
                     b.HasIndex("Login");
 
-                    b.ToTable("users", "stat_collector");
+                    b.ToTable("users", "serviceman");
                 });
 
             modelBuilder.Entity("StatCollector.Data.Job", b =>
@@ -102,7 +102,7 @@ namespace StatCollector.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("pipelines", "stat_collector");
+                    b.ToTable("pipelines", "serviceman");
                 });
 
             modelBuilder.Entity("StatCollector.Data.Job", b =>

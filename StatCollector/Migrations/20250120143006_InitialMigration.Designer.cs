@@ -11,7 +11,7 @@ using StatCollector.Data;
 namespace StatCollector.Migrations
 {
     [DbContext(typeof(PipelineContext))]
-    [Migration("20241220100518_InitialMigration")]
+    [Migration("20250120143006_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -19,6 +19,7 @@ namespace StatCollector.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("serviceman")
                 .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -55,7 +56,7 @@ namespace StatCollector.Migrations
 
                     b.HasIndex("Login");
 
-                    b.ToTable("users", (string)null);
+                    b.ToTable("users", "serviceman");
                 });
 
             modelBuilder.Entity("StatCollector.Data.Job", b =>
@@ -104,7 +105,7 @@ namespace StatCollector.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("pipelines", (string)null);
+                    b.ToTable("pipelines", "serviceman");
                 });
 
             modelBuilder.Entity("StatCollector.Data.Job", b =>
